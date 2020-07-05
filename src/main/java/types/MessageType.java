@@ -48,7 +48,7 @@ public class MessageType {
         this.sometags = value;
     }
 
-    public static void writeMessage(MessageType msg) throws JAXBException {
+    public static void writeOrder(MessageType msg) throws JAXBException {
         File dir = new File("C://Performer_" + msg.getDispatched().getId());
         File newFile = new File(dir + "/Order_" + msg.getTarget().getId() + ".xml");
         if (!dir.isDirectory()) {
@@ -56,7 +56,7 @@ public class MessageType {
         }
         JAXBContext context = JAXBContext.newInstance(MessageType.class);
         Marshaller marshaller = context.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         marshaller.marshal(msg, newFile);
     }
 

@@ -3,7 +3,7 @@ import types.MessageType;
 
 import javax.xml.bind.JAXBException;
 
-import static types.MessageType.writeMessage;
+import static types.MessageType.writeOrder;
 
 public class Performer extends Thread {
     private MessageType msg;
@@ -19,7 +19,7 @@ public class Performer extends Thread {
         try {
             msg.setDispatched(new DispatchedType());
             msg.getDispatched().setId(event);
-            writeMessage(msg);
+            writeOrder(msg);
             sleep(3000);
         } catch (InterruptedException | JAXBException e) {
             e.printStackTrace();
